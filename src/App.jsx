@@ -13,6 +13,7 @@ import TechMarquee from './components/TechMarquee';
 import Playground from './components/Playground';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import NayanHero from './components/NayanHero';
 
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -52,8 +53,13 @@ function App() {
       <Cursor />
       <Navbar />
       <div className="app-container">
+
+        <NayanHero />
+
         <main className="main-content">
-          <Hero />
+          {/*<Hero />*/}
+
+
           <About />
           <Experience />
           <Projects />
@@ -64,6 +70,7 @@ function App() {
           <Footer />
         </main>
       </div>
+
     </>
   );
 }
