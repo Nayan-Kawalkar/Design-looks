@@ -68,7 +68,7 @@ const Experience = () => {
     <section id="experience" className="experience-section container" ref={containerRef}>
       <ZoomBlurReveal>
         <h2 className="section-title">
-          <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>02 //</span>
+          <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>03 //</span>
           Experience
         </h2>
       </ZoomBlurReveal>

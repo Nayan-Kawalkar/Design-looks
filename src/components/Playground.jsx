@@ -8,25 +8,31 @@ const playgroundProjects = [
     title: 'Nook',
     desc: 'An inspiration archive for creatives to save, organize, and revisit references in a more immersive way.',
     tags: ['Creative Tool', 'Chrome Extension'],
-    image: '/images/nook.png',
+    image: '/images/cans.jpg',
+    video: '',
   },
   {
     title: 'Remake',
     desc: 'A creative-stack builder to assemble, remix, and deploy UI kits with modular design tokens.',
     tags: ['Web App', 'Creative Dev'],
-    image: '/images/remake.png',
+    image: '/images/gardern-1.png',
+    video: '/videos/gardern.mp4',
   },
   {
     title: 'Signal',
     desc: 'A real-time notification orchestration layer for multi-agent systems with priority queuing.',
     tags: ['Backend', 'Python', 'WebSocket'],
-    image: '/images/signal.png',
+    image: '/images/shoes.png',
+    video: '',
+
   },
   {
     title: 'Construct',
     desc: 'A node-based visual pipeline editor for building and debugging AI agent workflows in the browser.',
     tags: ['React', 'Canvas API', 'LangGraph'],
-    image: '/images/construct.png',
+    image: '/images/bhushido.png',
+    video: '',
+
   },
 ];
 
@@ -75,8 +81,10 @@ const Playground = () => {
         {/* Intro Block (moves with horizontal scroll) */}
         <div className="playground-intro">
           <div className="playground-label mono">
+            <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>05 //</span>
+
             <span className="green-dot"></span>
-            SINCE 2024
+            SINCE 2025
           </div>
           <ZoomBlurReveal>
             <h2 className="playground-title">Playground</h2>
@@ -98,8 +106,16 @@ const Playground = () => {
               className="playground-card-image"
               data-cursor-text="View Now"
             >
-              <img src={project.image} alt={project.title} loading="lazy" />
-            </div>
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster={project.image}
+                alt={project.title}
+              >
+                <source src={project.video} alt={project.title} type="video/mp4" />
+              </video>            </div>
             <h3 className="playground-card-title">{project.title}</h3>
             <p className="playground-card-desc">{project.desc}</p>
             <div className="playground-card-tags">

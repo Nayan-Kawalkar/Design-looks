@@ -125,25 +125,32 @@ const Projects = () => {
       <ZoomBlurReveal>
         <h2 className="section-title" style={{ marginBottom: '2rem' }}>
           <span className="text-accent mono" style={{ fontSize: '0.9rem', display: 'block', marginBottom: '0.4rem' }}>
-            03 //
+            04 //
           </span>
           Case Studies
         </h2>
       </ZoomBlurReveal>
+      <ZoomBlurReveal delay={0.15}>
+        <p className="hero-subtitle">
+          I blend technology, creativity, and empathy to craft seamless experiences that bridge people, spaces, and services.
+
+
+        </p>
+      </ZoomBlurReveal>
 
       {/* Main Carousel Wrapper */}
-      <div style={{ position: 'relative', width: '100%', maxWidth: '740px', margin: '0 auto' }}>
+      <div style={{ position: 'relative', width: '100%', maxWidth: '740px', margin: '0 auto', gap: '1.4rem' }}>
         {/* Left Arrow Button */}
         <button
           onClick={handlePrev}
           aria-label="Previous case study"
           style={{
             position: 'absolute',
-            left: '-52px',
-            top: '50%',
+            left: '-72px',
+            top: '45%',
             transform: 'translateY(-50%)',
-            width: '40px',
-            height: '40px',
+            width: '50px',
+            height: '50px',
             borderRadius: '50%',
             background: 'rgba(18, 18, 18, 0.85)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -164,7 +171,7 @@ const Projects = () => {
             e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
           }}
         >
-          <FaChevronLeft size={13} />
+          <FaChevronLeft size={23} />
         </button>
 
         {/* Right Arrow Button */}
@@ -173,11 +180,11 @@ const Projects = () => {
           aria-label="Next case study"
           style={{
             position: 'absolute',
-            right: '-52px',
-            top: '50%',
+            right: '-72px',
+            top: '45%',
             transform: 'translateY(-50%)',
-            width: '40px',
-            height: '40px',
+            width: '50px',
+            height: '50px',
             borderRadius: '50%',
             background: 'rgba(18, 18, 18, 0.85)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -198,7 +205,7 @@ const Projects = () => {
             e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
           }}
         >
-          <FaChevronRight size={13} />
+          <FaChevronRight size={23} />
         </button>
 
         {/* Main Featured Card - Proportionally scaled for 740px width & 490px max height */}
@@ -484,7 +491,10 @@ const Projects = () => {
             justifyContent: 'center',
             gap: '1.8rem',
             flexWrap: 'wrap',
-            marginTop: '2rem',
+            marginTop: '3rem',
+            borderTop: '2px solid var(--border-color)',
+
+
           }}
         >
           {caseStudies.map((study, index) => {
@@ -502,6 +512,8 @@ const Projects = () => {
                   fontFamily: "'Inter', sans-serif",
                   cursor: 'pointer',
                   padding: '0.35rem 0',
+                  marginTop: '0.6rem',
+
                   position: 'relative',
                   transition: 'color 0.25s ease',
                   whiteSpace: 'nowrap',

@@ -182,6 +182,9 @@ const About = () => {
           grid-template-columns: minmax(220px, 280px) 1fr;
           gap: 3.5rem;
           align-items: start;
+          border-top: 1px solid var(--border-color);
+          padding-top: 2rem;
+
         }
         @media (max-width: 800px) {
           .about-grid-layout {
@@ -191,7 +194,7 @@ const About = () => {
         }
       `}</style>
 
-      <div className="container about-grid-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <div className="container about-grid-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '6rem 1.5rem' }}>
         {/* ===== LEFT COLUMN ===== */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
@@ -210,6 +213,8 @@ const About = () => {
                 fontFamily: "'Inter', sans-serif",
               }}
             >
+              <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>02 //</span>
+
               Intro
             </h2>
           </ZoomBlurReveal>
@@ -284,7 +289,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* ===== RIGHT COLUMN: 3D-TILT CARD WITH RIGHT-TO-LEFT SCROLL ANIMATION ===== */}
+        {/* ===== RIGHT COLUMN: 3D-TILT WRAPPER (mouse tilt) + FULL CARD FLIP (tab switch) ===== */}
         <motion.div
           ref={cardRef}
           onMouseMove={handleMouseMove}
@@ -294,131 +299,143 @@ const About = () => {
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           style={{
+            // This wrapper ONLY handles the continuous mouse-tilt.
+            // The actual card (background/border/shadow/content) lives in the
+            // AnimatePresence child below, so THAT is what flips on tab change.
             rotateX,
             rotateY,
-            perspective: 1000,
+            perspective: 1400,
             transformStyle: 'preserve-3d',
             position: 'relative',
-            background: '#111114',
-            backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px)',
-            backgroundSize: '22px 22px',
-            borderRadius: '24px',
-            border: '1px solid rgba(255,255,255,0.06)',
-            padding: '4.5rem 3.8rem',
             minHeight: '480px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            boxShadow: `0 30px 60px rgba(0,0,0,0.5), inset 0 0 80px rgba(${
-              currentAudience.accentColor === '#22c55e' ? '34,197,94' :
-              currentAudience.accentColor === '#3b82f6' ? '59,130,246' :
-              currentAudience.accentColor === '#a855f7' ? '168,85,247' :
-              currentAudience.accentColor === '#f59e0b' ? '245,158,11' :
-              '6,182,212'
-            },0.03)`,
-            boxSizing: 'border-box',
-            overflow: 'hidden',
-            transition: 'box-shadow 0.5s ease',
           }}
         >
-          {/* Decorative floating code snippets */}
-          <FloatingTag text="const persona = {" top="18px" left="22px" delay={0.2} />
-          <FloatingTag text="}" top="90%" left="92%" delay={0.5} />
-          <FloatingTag text="// v2.0" top="92%" left="22px" delay={0.8} />
-
-          {/* Top-right dog-ear corner fold */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              width: '45px',
-              height: '45px',
-              background: `linear-gradient(225deg, #09090b 50%, ${currentAudience.accentColor}22 50%)`,
-              borderBottomLeftRadius: '12px',
-              transition: 'background 0.3s ease',
-              pointerEvents: 'none',
-            }}
-          />
-
-          {/* Accent glow orb (subtle animated gradient) */}
-          <motion.div
-            animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -20, 15, 0],
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-            style={{
-              position: 'absolute',
-              top: '-40px',
-              right: '-40px',
-              width: '240px',
-              height: '240px',
-              borderRadius: '50%',
-              background: `radial-gradient(circle, ${currentAudience.accentColor}15 0%, transparent 70%)`,
-              pointerEvents: 'none',
-              filter: 'blur(35px)',
-              transition: 'background 0.5s ease',
-            }}
-          />
-
-          {/* Typed prefix line: "// speaking to: Engineers" */}
-          <div
-            style={{
-              marginBottom: '2.5rem',
-              fontSize: '0.88rem',
-              fontFamily: "'Space Mono', monospace",
-              color: currentAudience.accentColor,
-              letterSpacing: '0.04em',
-              opacity: 0.7,
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <span>{typedPrefix}</span>
-            <TypingCursor color={currentAudience.accentColor} />
-          </div>
-
-          {/* Statement Content */}
+          {/* The whole card — background, border, shadow, decorations, text — flips as one piece */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentAudience.id}
-              initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -18, filter: 'blur(6px)' }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, rotateY: 110, scale: 0.92 }}
+              animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+              exit={{ opacity: 0, rotateY: -110, scale: 0.92 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                fontSize: 'clamp(1.6rem, 3vw, 2.5rem)',
-                lineHeight: 1.75,
-                color: '#52525b',
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 400,
-                letterSpacing: '-0.015em',
-                position: 'relative',
-                zIndex: 5,
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                minHeight: '480px',
+                transformStyle: 'preserve-3d',
+                backfaceVisibility: 'hidden',
+                background: '#111114',
+                backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px)',
+                backgroundSize: '22px 22px',
+                borderRadius: '24px',
+                border: '1px solid rgba(255,255,255,0.06)',
+                boxShadow: `0 30px 60px rgba(0,0,0,0.5), inset 0 0 80px rgba(${currentAudience.accentColor === '#22c55e' ? '34,197,94' :
+                  currentAudience.accentColor === '#3b82f6' ? '59,130,246' :
+                    currentAudience.accentColor === '#a855f7' ? '168,85,247' :
+                      currentAudience.accentColor === '#f59e0b' ? '245,158,11' :
+                        '6,182,212'
+                  },0.03)`,
+                boxSizing: 'border-box',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                padding: '4.5rem 3.8rem',
               }}
             >
-              {currentAudience.content}
+              {/* Decorative floating code snippets */}
+              <FloatingTag text="const persona = {" top="18px" left="22px" delay={0.15} />
+              <FloatingTag text="}" top="90%" left="92%" delay={0.3} />
+              <FloatingTag text="// v2.0" top="92%" left="22px" delay={0.4} />
+
+              {/* Top-right dog-ear corner fold */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  right: 0,
+                  width: '45px',
+                  height: '45px',
+                  background: `linear-gradient(225deg, #09090b 50%, ${currentAudience.accentColor}22 50%)`,
+                  borderBottomLeftRadius: '12px',
+                  pointerEvents: 'none',
+                }}
+              />
+
+              {/* Accent glow orb (subtle animated gradient) */}
+              <motion.div
+                animate={{
+                  x: [0, 30, -20, 0],
+                  y: [0, -20, 15, 0],
+                }}
+                transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+                style={{
+                  position: 'absolute',
+                  top: '-40px',
+                  right: '-40px',
+                  width: '240px',
+                  height: '240px',
+                  borderRadius: '50%',
+                  background: `radial-gradient(circle, ${currentAudience.accentColor}15 0%, transparent 70%)`,
+                  pointerEvents: 'none',
+                  filter: 'blur(35px)',
+                }}
+              />
+
+              {/* Typed prefix line: "// speaking to: Engineers" */}
+              <div
+                style={{
+                  marginBottom: '2.5rem',
+                  fontSize: '0.88rem',
+                  fontFamily: "'Space Mono', monospace",
+                  color: currentAudience.accentColor,
+                  letterSpacing: '0.04em',
+                  opacity: 0.7,
+                  display: 'flex',
+                  alignItems: 'center',
+                  position: 'relative',
+                  zIndex: 5,
+                }}
+              >
+                <span>{typedPrefix}</span>
+                <TypingCursor color={currentAudience.accentColor} />
+              </div>
+
+              {/* Statement content */}
+              <div
+                style={{
+                  fontSize: 'clamp(1.6rem, 3vw, 2.5rem)',
+                  lineHeight: 1.75,
+                  color: '#52525b',
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  letterSpacing: '-0.015em',
+                  position: 'relative',
+                  zIndex: 5,
+                }}
+              >
+                {currentAudience.content}
+              </div>
+
+              {/* Bottom-right line count decoration */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '18px',
+                  right: '24px',
+                  fontSize: '0.72rem',
+                  fontFamily: "'Space Mono', monospace",
+                  color: '#ffffff',
+                  letterSpacing: '0.06em',
+                  opacity: 0.15,
+                }}
+              >
+                Ln 42, Col 8
+              </div>
             </motion.div>
           </AnimatePresence>
-
-          {/* Bottom-right line count decoration */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.15 }}
-            transition={{ delay: 1 }}
-            style={{
-              position: 'absolute',
-              bottom: '18px',
-              right: '24px',
-              fontSize: '0.72rem',
-              fontFamily: "'Space Mono', monospace",
-              color: '#ffffff',
-              letterSpacing: '0.06em',
-            }}
-          >
-            Ln 42, Col 8
-          </motion.div>
         </motion.div>
       </div>
     </section>

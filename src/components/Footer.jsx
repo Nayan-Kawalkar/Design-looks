@@ -182,7 +182,23 @@ const Footer = () => {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               <li>
                 <a
-                  href="https://linkedin.com"
+                  href="mailto:kawalkarnayan07@gmail.com"
+                  style={{
+                    color: '#d4d4d8',
+                    fontSize: '0.95rem',
+                    textDecoration: 'none',
+                    fontFamily: "'Inter', sans-serif",
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
+                >
+                  Email
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/nayan-kawalkar-164725352/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -201,22 +217,50 @@ const Footer = () => {
                   LinkedIn ↗
                 </a>
               </li>
+
               <li>
                 <a
-                  href="mailto:jingjinghan46@gmail.com"
+                  href="https://github.com/Nayan-Kawalkar"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     color: '#d4d4d8',
                     fontSize: '0.95rem',
                     textDecoration: 'none',
                     fontFamily: "'Inter', sans-serif",
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
                     transition: 'color 0.2s ease',
                   }}
                   onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
                   onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
                 >
-                  Email
+                  Github ↗
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://x.com/itsbyNayan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#d4d4d8',
+                    fontSize: '0.95rem',
+                    textDecoration: 'none',
+                    fontFamily: "'Inter', sans-serif",
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
+                >
+                  X/ Twitter ↗
+                </a>
+              </li>
+
               <li>
                 <a
                   href="#resources"
@@ -276,7 +320,7 @@ const Footer = () => {
                 onMouseEnter={(e) => (e.target.style.opacity = '0.85')}
                 onMouseLeave={(e) => (e.target.style.opacity = '1')}
               >
-                jingjinghan46@gmail.com
+                kawalkarnayan07@gmail.com
               </a>
             </ZoomBlurReveal>
 
@@ -302,7 +346,7 @@ const Footer = () => {
                 }}
               />
               <span style={{ fontSize: '0.88rem', color: '#a1a1aa', fontFamily: "'Inter', sans-serif" }}>
-                Available for work — New York, NY
+                Available for work — Maharastra, India
               </span>
             </div>
           </div>
@@ -321,7 +365,7 @@ const Footer = () => {
           }}
         >
           <span style={{ fontSize: '0.82rem', color: '#71717a', fontFamily: "'Inter', sans-serif" }}>
-            ©{currentYear} Jingjing Han — All rights reserved
+            ©{currentYear} Nayan Kawalkar — All rights reserved
           </span>
 
           <button
