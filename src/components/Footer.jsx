@@ -1,20 +1,349 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ZoomBlurReveal } from './ZoomBlurHeading';
 
 const Footer = () => {
-  const year = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
+  const headingRef = useRef(null);
+
+  // Track scroll position of the footer heading relative to viewport
+  const { scrollYProgress } = useScroll({
+    target: headingRef,
+    offset: ["start 95%", "center 50%"],
+  });
+
+  // "Let's" glides from the left (-350px -> 0px) and fades in
+  const letsX = useTransform(scrollYProgress, [0, 1], [-350, 0]);
+  const letsOpacity = useTransform(scrollYProgress, [0, 0.85], [0, 1]);
+
+  // "Collaborate!" glides from the right (350px -> 0px) and fades in
+  const collaborateX = useTransform(scrollYProgress, [0, 1], [350, 0]);
+  const collaborateOpacity = useTransform(scrollYProgress, [0, 0.85], [0, 1]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    } else if (sectionId === 'top') {
+      scrollToTop();
+    }
+  };
 
   return (
-    <footer className="footer-section">
-      <div className="footer-inner">
-        <div className="footer-left">
-          <span className="mono" style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-            © {year} — Designed & Engineered with precision.
-          </span>
+    <footer
+      style={{
+        backgroundColor: '#09090b',
+        color: '#ffffff',
+        paddingTop: '6rem',
+        paddingBottom: '3rem',
+        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
+      }}
+    >
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+        {/* HUGE HEADING: Let's (from Left) & Collaborate! (from Right) */}
+        <div
+          ref={headingRef}
+          style={{
+            textAlign: 'center',
+            marginBottom: '4rem',
+            overflow: 'hidden',
+            padding: '1rem 0',
+          }}
+        >
+          <div style={{ overflow: 'hidden', width: '100%' }}>
+            <motion.h2
+              style={{
+                x: letsX,
+                opacity: letsOpacity,
+                fontSize: 'clamp(3.8rem, 10vw, 8.5rem)',
+                fontWeight: 500,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.0,
+                color: '#ffffff',
+                margin: 0,
+                fontFamily: "'Inter', sans-serif",
+                display: 'inline-block',
+              }}
+            >
+              Let's
+            </motion.h2>
+          </div>
+
+          <div style={{ overflow: 'hidden', width: '100%' }}>
+            <motion.h2
+              style={{
+                x: collaborateX,
+                opacity: collaborateOpacity,
+                fontSize: 'clamp(3.8rem, 10vw, 8.5rem)',
+                fontWeight: 500,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.0,
+                color: '#ffffff',
+                margin: 0,
+                fontFamily: "'Inter', sans-serif",
+                display: 'inline-block',
+              }}
+            >
+              Collaborate!
+            </motion.h2>
+          </div>
         </div>
-        <div className="footer-right">
-          <span className="mono" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-            SYS.VER: 2.0.26 &nbsp;|&nbsp; BUILD: PRODUCTION
+
+        {/* THIN HORIZONTAL DIVIDER */}
+        <div
+          style={{
+            width: '100%',
+            height: '1px',
+            background: 'rgba(255, 255, 255, 0.12)',
+            marginBottom: '3.5rem',
+          }}
+        />
+
+        {/* THREE COLUMNS GRID */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '3rem',
+            marginBottom: '5rem',
+          }}
+        >
+          {/* COLUMN 1: MENU */}
+          <div>
+            <ZoomBlurReveal>
+              <span
+                style={{
+                  display: 'block',
+                  fontSize: '0.75rem',
+                  color: '#666666',
+                  fontFamily: "'Space Mono', monospace",
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  marginBottom: '1.4rem',
+                }}
+              >
+                MENU
+              </span>
+            </ZoomBlurReveal>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+              {['Home', 'Work', 'Playground', 'About'].map((item) => {
+                const sectionId = item === 'Home' ? 'hero' : item.toLowerCase();
+                return (
+                  <li key={item}>
+                    <a
+                      href={`#${sectionId}`}
+                      onClick={(e) => handleNavClick(e, sectionId)}
+                      style={{
+                        color: '#d4d4d8',
+                        fontSize: '0.95rem',
+                        textDecoration: 'none',
+                        fontFamily: "'Inter', sans-serif",
+                        transition: 'color 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+                      onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
+                    >
+                      {item}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* COLUMN 2: CONNECT */}
+          <div>
+            <ZoomBlurReveal delay={0.1}>
+              <span
+                style={{
+                  display: 'block',
+                  fontSize: '0.75rem',
+                  color: '#666666',
+                  fontFamily: "'Space Mono', monospace",
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  marginBottom: '1.4rem',
+                }}
+              >
+                CONNECT
+              </span>
+            </ZoomBlurReveal>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+              <li>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#d4d4d8',
+                    fontSize: '0.95rem',
+                    textDecoration: 'none',
+                    fontFamily: "'Inter', sans-serif",
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
+                >
+                  LinkedIn ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:jingjinghan46@gmail.com"
+                  style={{
+                    color: '#d4d4d8',
+                    fontSize: '0.95rem',
+                    textDecoration: 'none',
+                    fontFamily: "'Inter', sans-serif",
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
+                >
+                  Email
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#resources"
+                  style={{
+                    color: '#d4d4d8',
+                    fontSize: '0.95rem',
+                    textDecoration: 'none',
+                    fontFamily: "'Inter', sans-serif",
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.target.style.color = '#d4d4d8')}
+                >
+                  Resources ↗
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* COLUMN 3: SAY HELLO */}
+          <div style={{ gridColumn: 'span 1' }}>
+            <ZoomBlurReveal delay={0.2}>
+              <span
+                style={{
+                  display: 'block',
+                  fontSize: '0.75rem',
+                  color: '#666666',
+                  fontFamily: "'Space Mono', monospace",
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  marginBottom: '1.4rem',
+                }}
+              >
+                SAY HELLO
+              </span>
+            </ZoomBlurReveal>
+
+            {/* Email Address */}
+            <ZoomBlurReveal delay={0.3}>
+              <a
+                href="mailto:jingjinghan46@gmail.com"
+                style={{
+                  display: 'block',
+                  color: '#ffffff',
+                  fontSize: 'clamp(1.4rem, 2.5vw, 2.2rem)',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  fontFamily: "'Inter', sans-serif",
+                  letterSpacing: '-0.02em',
+                  marginBottom: '1.2rem',
+                  wordBreak: 'break-all',
+                  transition: 'opacity 0.2s ease',
+                }}
+                onMouseEnter={(e) => (e.target.style.opacity = '0.85')}
+                onMouseLeave={(e) => (e.target.style.opacity = '1')}
+              >
+                jingjinghan46@gmail.com
+              </a>
+            </ZoomBlurReveal>
+
+            {/* Availability Status Badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <motion.span
+                animate={{
+                  scale: [1, 1.25, 1],
+                  opacity: [0.75, 1, 0.75],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: '#22c55e',
+                  boxShadow: '0 0 8px rgba(34, 197, 94, 0.8)',
+                  display: 'inline-block',
+                }}
+              />
+              <span style={{ fontSize: '0.88rem', color: '#a1a1aa', fontFamily: "'Inter', sans-serif" }}>
+                Available for work — New York, NY
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM COPYRIGHT & BACK TO TOP BAR */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            flexWrap: 'wrap',
+            gap: '1rem',
+          }}
+        >
+          <span style={{ fontSize: '0.82rem', color: '#71717a', fontFamily: "'Inter', sans-serif" }}>
+            ©{currentYear} Jingjing Han — All rights reserved
           </span>
+
+          <button
+            onClick={scrollToTop}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#a1a1aa',
+              fontSize: '0.82rem',
+              fontFamily: "'Space Mono', monospace",
+              letterSpacing: '0.08em',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              transition: 'color 0.2s ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = '#a1a1aa')}
+          >
+            BACK TO TOP ↑
+          </button>
         </div>
       </div>
     </footer>

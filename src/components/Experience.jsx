@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ZoomBlurReveal } from './ZoomBlurHeading';
 
 const experiences = [
   {
@@ -64,11 +65,13 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="experience-section" ref={containerRef}>
-      <h2 className="section-title">
-        <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>02 //</span>
-        Experience
-      </h2>
+    <section id="experience" className="experience-section container" ref={containerRef}>
+      <ZoomBlurReveal>
+        <h2 className="section-title">
+          <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>02 //</span>
+          Experience
+        </h2>
+      </ZoomBlurReveal>
 
       <div className="timeline">
         <div className="timeline-line"></div>
@@ -78,9 +81,13 @@ const Experience = () => {
           <div key={exp.id} className="timeline-item">
             <div className="timeline-dot"></div>
             <span className="timeline-date mono">{exp.date}</span>
-            <h3 className="timeline-role">{exp.role}</h3>
+            <ZoomBlurReveal delay={0.1}>
+              <h3 className="timeline-role">{exp.role}</h3>
+            </ZoomBlurReveal>
             <div className="timeline-company mono">{exp.company}</div>
-            <p className="timeline-desc">{exp.description}</p>
+            <ZoomBlurReveal delay={0.2}>
+              <p className="timeline-desc">{exp.description}</p>
+            </ZoomBlurReveal>
           </div>
         ))}
       </div>

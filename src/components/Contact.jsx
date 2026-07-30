@@ -46,7 +46,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" className="contact-section" ref={containerRef}>
+    <section id="contact" className="contact-section container" ref={containerRef}>
       <div className="contact-inner">
         <h2 className="contact-headline">
           <div style={{ overflow: 'hidden' }}>

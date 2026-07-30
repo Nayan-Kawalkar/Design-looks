@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ZoomBlurReveal } from './ZoomBlurHeading';
 
 const technologies = [
   'React', 'Next.js', 'TypeScript', 'Python', 'Node.js', 'GSAP',
@@ -33,10 +34,12 @@ const TechMarquee = () => {
 
   return (
     <section className="marquee-section" ref={marqueeRef}>
-      <h2 className="section-title" style={{ padding: '0 0 2rem 0' }}>
-        <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>04 //</span>
-        Tech Arsenal
-      </h2>
+      <ZoomBlurReveal>
+        <h2 className="section-title" style={{ padding: '0 0 2rem 0' }}>
+          <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>04 //</span>
+          Tech Arsenal
+        </h2>
+      </ZoomBlurReveal>
 
       <div className="marquee-container">
         <div className="marquee-track">

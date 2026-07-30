@@ -3,28 +3,44 @@ import gsap from 'gsap';
 
 const Cursor = () => {
   const cursorRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
     const cursor = cursorRef.current;
-    if (!cursor) return;
+    const textEl = textRef.current;
+    if (!cursor || !textEl) return;
 
     // Use GSAP quickTo for performance
     const xTo = gsap.quickTo(cursor, "x", { duration: 0.2, ease: "power3" });
     const yTo = gsap.quickTo(cursor, "y", { duration: 0.2, ease: "power3" });
 
     const moveCursor = (e) => {
-      // Offset by half the base size (32px / 2 = 16) to center the dot
       xTo(e.clientX - 16);
       yTo(e.clientY - 16);
     };
 
     window.addEventListener("mousemove", moveCursor);
 
+    // Hover handler for view-now card cursor (data-cursor-text)
+    const handleMouseEnterViewText = (cursorText) => {
+      textEl.innerText = cursorText;
+      gsap.to(cursor, { 
+        scale: 3.2, 
+        backgroundColor: "var(--accent)", 
+        mixBlendMode: "normal",
+        border: "none", 
+        duration: 0.3 
+      });
+      gsap.to(textEl, { opacity: 1, duration: 0.2 });
+    };
+
     // Hover handlers for interactive elements (links, buttons)
     const handleMouseEnterInteractive = () => {
+      textEl.innerText = "";
       gsap.to(cursor, { 
         scale: 2.5, 
         backgroundColor: "transparent", 
+        mixBlendMode: "difference",
         border: "1px solid var(--accent)", 
         duration: 0.3 
       });
@@ -32,27 +48,28 @@ const Cursor = () => {
 
     // Hover handlers for text content
     const handleMouseEnterText = (target) => {
-      // Get font size of hovered text
+      textEl.innerText = "";
       const computedStyle = window.getComputedStyle(target);
       const fontSize = parseFloat(computedStyle.fontSize);
-      
-      // Calculate target size (min 40px, up to 1.5x the font size)
       const targetSize = Math.max(fontSize * 1.5, 40); 
-      // Calculate scale relative to the base 32px size
       const newScale = targetSize / 32;
 
       gsap.to(cursor, { 
         scale: newScale,
-        backgroundColor: "#ffffff", // Solid white creates the perfect inverted color effect with mix-blend-mode: difference
+        backgroundColor: "#ffffff", 
+        mixBlendMode: "difference",
         border: "none", 
         duration: 0.3 
       });
     };
 
     const handleMouseLeave = () => {
+      gsap.to(textEl, { opacity: 0, duration: 0.15 });
+      textEl.innerText = "";
       gsap.to(cursor, { 
         scale: 1, 
         backgroundColor: "var(--accent)", 
+        mixBlendMode: "difference",
         border: "none", 
         duration: 0.3 
       });
@@ -60,25 +77,31 @@ const Cursor = () => {
 
     // Use event delegation on document
     const handleMouseOver = (e) => {
-      // 1. Check for links/buttons first
+      // 1. Check for custom cursor text first (e.g. Playground cards)
+      const viewTextTarget = e.target.closest('[data-cursor-text]');
+      if (viewTextTarget) {
+        handleMouseEnterViewText(viewTextTarget.dataset.cursorText);
+        return;
+      }
+
+      // 2. Check for links/buttons
       const interactiveTarget = e.target.closest('a, button, .magnetic');
       if (interactiveTarget) {
         handleMouseEnterInteractive();
         return;
       }
 
-      // 2. Check for text elements
+      // 3. Check for text elements
       const textTarget = e.target.closest('h1, h2, h3, h4, h5, h6, p, span, li');
       if (textTarget) {
-        // Prevent scaling if the text is inside a button/link (already handled above)
-        if (!textTarget.closest('a, button, .magnetic')) {
+        if (!textTarget.closest('a, button, .magnetic, [data-cursor-text]')) {
           handleMouseEnterText(textTarget);
         }
       }
     };
 
     const handleMouseOut = (e) => {
-      const target = e.target.closest('a, button, .magnetic, h1, h2, h3, h4, h5, h6, p, span, li');
+      const target = e.target.closest('[data-cursor-text], a, button, .magnetic, h1, h2, h3, h4, h5, h6, p, span, li');
       if (target) {
         const related = e.relatedTarget;
         if (!target.contains(related)) {
@@ -111,10 +134,29 @@ const Cursor = () => {
         backgroundColor: 'var(--accent)',
         pointerEvents: 'none',
         zIndex: 9999,
-        mixBlendMode: 'difference', // This is what inverts the colors inside the cursor
+        mixBlendMode: 'difference',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         willChange: 'transform'
       }}
-    />
+    >
+      <span 
+        ref={textRef} 
+        style={{
+          fontFamily: "'Space Mono', monospace",
+          fontSize: '7px',
+          fontWeight: '700',
+          color: '#0a0a0a',
+          textAlign: 'center',
+          textTransform: 'uppercase',
+          lineHeight: '1.1',
+          opacity: 0,
+          pointerEvents: 'none',
+          padding: '2px'
+        }}
+      />
+    </div>
   );
 };
 
