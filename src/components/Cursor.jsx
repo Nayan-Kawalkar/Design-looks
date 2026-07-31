@@ -5,7 +5,13 @@ const Cursor = () => {
   const cursorRef = useRef(null);
   const textRef = useRef(null);
 
+  // Don't render the custom cursor on touch/mobile devices
+  const isTouchDevice = typeof window !== 'undefined' && (
+    'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 768
+  );
+
   useEffect(() => {
+    if (isTouchDevice) return;
     const cursor = cursorRef.current;
     const textEl = textRef.current;
     if (!cursor || !textEl) return;

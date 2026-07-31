@@ -50,6 +50,45 @@ const Footer = () => {
         overflow: 'hidden',
       }}
     >
+      {/* Responsive scoped styles */}
+      <style>{`
+        .footer-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 3rem;
+          margin-bottom: 5rem;
+        }
+        .footer-bottom-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        @media (max-width: 768px) {
+          .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            text-align: center;
+          }
+          .footer-grid ul {
+            align-items: center !important;
+          }
+          .footer-grid a {
+            justify-content: center !important;
+          }
+          .footer-bottom-bar {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.75rem;
+          }
+          .footer-availability {
+            justify-content: center !important;
+          }
+        }
+      `}</style>
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
         {/* HUGE HEADING: Let's (from Left) & Collaborate! (from Right) */}
         <div
@@ -111,14 +150,7 @@ const Footer = () => {
         />
 
         {/* THREE COLUMNS GRID */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '3rem',
-            marginBottom: '5rem',
-          }}
-        >
+        <div className="footer-grid">
           {/* COLUMN 1: MENU */}
           <div>
             <ZoomBlurReveal>
@@ -325,7 +357,7 @@ const Footer = () => {
             </ZoomBlurReveal>
 
             {/* Availability Status Badge */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <div className="footer-availability" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <motion.span
                 animate={{
                   scale: [1, 1.25, 1],
@@ -353,17 +385,7 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM COPYRIGHT & BACK TO TOP BAR */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingTop: '2rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-            flexWrap: 'wrap',
-            gap: '1rem',
-          }}
-        >
+        <div className="footer-bottom-bar">
           <span style={{ fontSize: '0.82rem', color: '#71717a', fontFamily: "'Inter', sans-serif" }}>
             ©{currentYear} Nayan Kawalkar — All rights reserved
           </span>

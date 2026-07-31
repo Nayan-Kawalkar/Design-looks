@@ -121,6 +121,69 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects-section container" style={{ paddingTop: '3.5rem', paddingBottom: '5rem' }}>
+      {/* Responsive scoped styles */}
+      <style>{`
+        .projects-desktop-view {
+          display: block;
+          position: relative;
+          width: 100%;
+          max-width: 740px;
+          margin: 0 auto;
+        }
+        .projects-mobile-view {
+          display: none;
+        }
+        .projects-arrow-btn {
+          position: absolute;
+          top: 45%;
+          transform: translateY(-50%);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: rgba(18, 18, 18, 0.85);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 30;
+          transition: all 0.2s ease;
+        }
+        .projects-arrow-btn:hover {
+          border-color: rgba(255, 255, 255, 0.4);
+          transform: translateY(-50%) scale(1.08);
+        }
+        .projects-arrow-left { left: -72px; }
+        .projects-arrow-right { right: -72px; }
+        .projects-tab-nav {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1.8rem;
+          flex-wrap: wrap;
+          margin-top: 3rem;
+          border-top: 2px solid var(--border-color);
+        }
+
+        @media (max-width: 900px) {
+          .projects-arrow-left { left: -56px; }
+          .projects-arrow-right { right: -56px; }
+          .projects-arrow-btn { width: 42px; height: 42px; }
+        }
+
+        @media (max-width: 768px) {
+          .projects-desktop-view {
+            display: none !important;
+          }
+          .projects-mobile-view {
+            display: flex !important;
+            flex-direction: column;
+            gap: 2.5rem;
+            width: 100%;
+          }
+        }
+      `}</style>
       {/* Section Title Header */}
       <ZoomBlurReveal>
         <h2 className="section-title" style={{ marginBottom: '2rem' }}>
@@ -133,80 +196,28 @@ const Projects = () => {
       <ZoomBlurReveal delay={0.15}>
         <p className="hero-subtitle">
           I blend technology, creativity, and empathy to craft seamless experiences that bridge people, spaces, and services.
-
-
         </p>
       </ZoomBlurReveal>
 
-      {/* Main Carousel Wrapper */}
-      <div style={{ position: 'relative', width: '100%', maxWidth: '740px', margin: '0 auto', gap: '1.4rem' }}>
-        {/* Left Arrow Button */}
-        <button
-          onClick={handlePrev}
-          aria-label="Previous case study"
-          style={{
-            position: 'absolute',
-            left: '-72px',
-            top: '45%',
-            transform: 'translateY(-50%)',
-            width: '50px',
-            height: '50px',
-            borderRadius: '50%',
-            background: 'rgba(18, 18, 18, 0.85)',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            color: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: 30,
-            transition: 'all 0.2s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-            e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-          }}
-        >
-          <FaChevronLeft size={23} />
-        </button>
-
-        {/* Right Arrow Button */}
-        <button
-          onClick={handleNext}
-          aria-label="Next case study"
-          style={{
-            position: 'absolute',
-            right: '-72px',
-            top: '45%',
-            transform: 'translateY(-50%)',
-            width: '50px',
-            height: '50px',
-            borderRadius: '50%',
-            background: 'rgba(18, 18, 18, 0.85)',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            color: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: 30,
-            transition: 'all 0.2s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-            e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-          }}
-        >
-          <FaChevronRight size={23} />
-        </button>
+      {/* Desktop View: Interactive Carousel */}
+      <div className="projects-desktop-view">
+        {/* Arrow Buttons */}
+        <div className="projects-arrows-desktop" style={{ display: 'contents' }}>
+          <button
+            onClick={handlePrev}
+            aria-label="Previous case study"
+            className="projects-arrow-btn projects-arrow-left"
+          >
+            <FaChevronLeft size={20} />
+          </button>
+          <button
+            onClick={handleNext}
+            aria-label="Next case study"
+            className="projects-arrow-btn projects-arrow-right"
+          >
+            <FaChevronRight size={20} />
+          </button>
+        </div>
 
         {/* Main Featured Card - Proportionally scaled for 740px width & 490px max height */}
         <div
@@ -484,19 +495,7 @@ const Projects = () => {
         </div>
 
         {/* BOTTOM TAB NAVIGATION (Responsive spacing & font sizes) */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '1.8rem',
-            flexWrap: 'wrap',
-            marginTop: '3rem',
-            borderTop: '2px solid var(--border-color)',
-
-
-          }}
-        >
+        <div className="projects-tab-nav">
           {caseStudies.map((study, index) => {
             const isActive = index === currentIndex;
             return (
@@ -545,6 +544,176 @@ const Projects = () => {
             );
           })}
         </div>
+      </div>
+
+      {/* Mobile View: Vertical Stack of All Project Cards */}
+      <div className="projects-mobile-view">
+        {caseStudies.map((study, index) => (
+          <div
+            key={study.id}
+            style={{
+              width: '100%',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              position: 'relative',
+              background: study.bgGradient,
+              boxShadow: '0 15px 40px rgba(0,0,0,0.5)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              padding: '1.25rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.2rem',
+              boxSizing: 'border-box',
+            }}
+          >
+            {/* Background Video */}
+            {study.videoUrl && (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  opacity: 0.35,
+                  mixBlendMode: 'screen',
+                  pointerEvents: 'none',
+                  zIndex: 1,
+                }}
+              >
+                <source src={study.videoUrl} type="video/mp4" />
+              </video>
+            )}
+
+            {/* Top Counter & Tag */}
+            <div style={{ zIndex: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span
+                style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  padding: '0.3rem 0.8rem',
+                  borderRadius: '100px',
+                  color: '#ffffff',
+                  fontSize: '0.75rem',
+                  fontFamily: "'Space Mono', monospace",
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                }}
+              >
+                {String(index + 1).padStart(2, '0')} / {String(caseStudies.length).padStart(2, '0')}
+              </span>
+              <span
+                style={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '0.75rem',
+                  fontFamily: "'Space Mono', monospace",
+                }}
+              >
+                {study.name}
+              </span>
+            </div>
+
+            {/* Phone Mockup Screen */}
+            <div
+              style={{
+                position: 'relative',
+                zIndex: 5,
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '0.4rem 0',
+              }}
+            >
+              <div
+                style={{
+                  width: '210px',
+                  height: '310px',
+                  background: '#ffffff',
+                  borderRadius: '22px',
+                  boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                  padding: '0.85rem',
+                  boxSizing: 'border-box',
+                  color: '#18181b',
+                  fontFamily: "'Inter', sans-serif",
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  border: '3px solid rgba(255,255,255,0.4)',
+                }}
+              >
+                {/* Status Bar */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.65rem', fontWeight: 600, color: '#09090b' }}>
+                  <span>9:41</span>
+                  <span>📶 🔋</span>
+                </div>
+
+                {/* App Header */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.3rem', paddingBottom: '0.4rem', borderBottom: '1px solid #f4f4f5' }}>
+                  <div style={{ width: 20, height: 20, borderRadius: '50%', background: '#2563eb', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', fontWeight: 700 }}>
+                    {study.centerScreen.user.charAt(0)}
+                  </div>
+                  <span style={{ fontWeight: 600, fontSize: '0.75rem' }}>{study.centerScreen.user}</span>
+                </div>
+
+                {/* Messages */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', flex: 1, marginTop: '0.5rem', overflow: 'hidden' }}>
+                  {study.centerScreen.messages.slice(0, 3).map((msg, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        alignSelf: msg.sender === 'me' ? 'flex-end' : 'flex-start',
+                        background: msg.sender === 'me' ? '#2563eb' : '#f4f4f5',
+                        color: msg.sender === 'me' ? '#ffffff' : '#27272a',
+                        padding: '0.4rem 0.6rem',
+                        borderRadius: msg.sender === 'me' ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
+                        fontSize: '0.65rem',
+                        lineHeight: 1.35,
+                        maxWidth: '90%',
+                      }}
+                    >
+                      {msg.text}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Input line */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#f4f4f5', padding: '0.35rem 0.6rem', borderRadius: '100px', fontSize: '0.65rem', color: '#a1a1aa' }}>
+                  <span>Message...</span>
+                  <span>🎤</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Typography */}
+            <div style={{ zIndex: 10, textAlign: 'center' }}>
+              <h3
+                style={{
+                  fontSize: '1.4rem',
+                  fontWeight: 600,
+                  color: '#ffffff',
+                  marginBottom: '0.4rem',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {study.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: '0.85rem',
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                {study.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

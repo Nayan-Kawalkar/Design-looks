@@ -186,10 +186,17 @@ const About = () => {
           padding-top: 2rem;
 
         }
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
           .about-grid-layout {
             grid-template-columns: 1fr;
             gap: 2rem;
+          }
+        }
+        @media (max-width: 768px) {
+          .about-grid-layout {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
           }
         }
       `}</style>
@@ -308,6 +315,8 @@ const About = () => {
             transformStyle: 'preserve-3d',
             position: 'relative',
             minHeight: '480px',
+            width: '100%',
+            maxWidth: '100%',
           }}
         >
           {/* The whole card — background, border, shadow, decorations, text — flips as one piece */}

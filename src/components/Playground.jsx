@@ -45,8 +45,10 @@ const Playground = () => {
     const track = trackRef.current;
     if (!section || !track) return;
 
-    const ctx = gsap.context(() => {
-      // Calculate total horizontal distance to scroll the entire section (intro + cards)
+    const mm = gsap.matchMedia();
+
+    // Desktop horizontal scroll (only above 768px)
+    mm.add("(min-width: 769px)", () => {
       const getScrollAmount = () => track.scrollWidth - window.innerWidth;
 
       gsap.to(track, {
@@ -62,7 +64,7 @@ const Playground = () => {
           invalidateOnRefresh: true,
         },
       });
-    }, section);
+    });
 
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
@@ -70,7 +72,7 @@ const Playground = () => {
 
     return () => {
       clearTimeout(timer);
-      ctx.revert();
+      mm.revert();
     };
   }, []);
 
