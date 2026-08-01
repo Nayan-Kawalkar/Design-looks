@@ -201,7 +201,7 @@ const About = () => {
         }
       `}</style>
 
-      <div className="container about-grid-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '6rem 1.5rem' }}>
+      <div className="container about-grid-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '6rem clamp(1rem, 4vw, 1.5rem)' }}>
         {/* ===== LEFT COLUMN ===== */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}

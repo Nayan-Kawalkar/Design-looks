@@ -549,163 +549,74 @@ const Projects = () => {
       {/* Mobile View: Vertical Stack of All Project Cards */}
       <div className="projects-mobile-view">
         {caseStudies.map((study, index) => (
-          <div
-            key={study.id}
-            style={{
-              width: '100%',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              position: 'relative',
-              background: study.bgGradient,
-              boxShadow: '0 15px 40px rgba(0,0,0,0.5)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              padding: '1.25rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.2rem',
-              boxSizing: 'border-box',
-            }}
-          >
-            {/* Background Video */}
-            {study.videoUrl && (
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  opacity: 0.35,
-                  mixBlendMode: 'screen',
-                  pointerEvents: 'none',
-                  zIndex: 1,
-                }}
-              >
-                <source src={study.videoUrl} type="video/mp4" />
-              </video>
-            )}
-
-            {/* Top Counter & Tag */}
-            <div style={{ zIndex: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span
-                style={{
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
-                  padding: '0.3rem 0.8rem',
-                  borderRadius: '100px',
-                  color: '#ffffff',
-                  fontSize: '0.75rem',
-                  fontFamily: "'Space Mono', monospace",
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                }}
-              >
-                {String(index + 1).padStart(2, '0')} / {String(caseStudies.length).padStart(2, '0')}
-              </span>
-              <span
-                style={{
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  fontSize: '0.75rem',
-                  fontFamily: "'Space Mono', monospace",
-                }}
-              >
-                {study.name}
-              </span>
-            </div>
-
-            {/* Phone Mockup Screen */}
-            <div
-              style={{
-                position: 'relative',
-                zIndex: 5,
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                padding: '0.4rem 0',
-              }}
-            >
+          <div key={study.id} style={{ width: '100%' }}>
+              {/* GRADIENT CARD (image clipped by outer frame) */}
               <div
                 style={{
-                  width: '210px',
-                  height: '310px',
-                  background: '#ffffff',
-                  borderRadius: '22px',
-                  boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
-                  padding: '0.85rem',
-                  boxSizing: 'border-box',
-                  color: '#18181b',
-                  fontFamily: "'Inter', sans-serif",
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  border: '3px solid rgba(255,255,255,0.4)',
+                  position: 'relative',
+                  background: study.bgGradient,
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  boxShadow: '0 15px 40px rgba(0,0,0,0.5)',
                 }}
               >
-                {/* Status Bar */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.65rem', fontWeight: 600, color: '#09090b' }}>
-                  <span>9:41</span>
-                  <span>📶 🔋</span>
-                </div>
-
-                {/* App Header */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.3rem', paddingBottom: '0.4rem', borderBottom: '1px solid #f4f4f5' }}>
-                  <div style={{ width: 20, height: 20, borderRadius: '50%', background: '#2563eb', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', fontWeight: 700 }}>
-                    {study.centerScreen.user.charAt(0)}
-                  </div>
-                  <span style={{ fontWeight: 600, fontSize: '0.75rem' }}>{study.centerScreen.user}</span>
-                </div>
-
-                {/* Messages */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', flex: 1, marginTop: '0.5rem', overflow: 'hidden' }}>
-                  {study.centerScreen.messages.slice(0, 3).map((msg, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        alignSelf: msg.sender === 'me' ? 'flex-end' : 'flex-start',
-                        background: msg.sender === 'me' ? '#2563eb' : '#f4f4f5',
-                        color: msg.sender === 'me' ? '#ffffff' : '#27272a',
-                        padding: '0.4rem 0.6rem',
-                        borderRadius: msg.sender === 'me' ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
-                        fontSize: '0.65rem',
-                        lineHeight: 1.35,
-                        maxWidth: '90%',
-                      }}
-                    >
-                      {msg.text}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Input line */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#f4f4f5', padding: '0.35rem 0.6rem', borderRadius: '100px', fontSize: '0.65rem', color: '#a1a1aa' }}>
-                  <span>Message...</span>
-                  <span>🎤</span>
-                </div>
-              </div>
+              {/* Preview image fills the outer frame */}
+              <img
+                src="images/nook.png"
+                alt={`${study.title} preview`}
+                style={{
+                  width: '100%',
+                  height: '420px',
+                  objectFit: 'contain',
+                  display: 'block',
+                }}
+              />
             </div>
 
-            {/* Typography */}
-            <div style={{ zIndex: 10, textAlign: 'center' }}>
+            {/* INFO BLOCK */}
+            <div style={{ position: 'relative', marginTop: '36px' }}>
+              {/* pagi-dot */}
+              <div
+                style={{
+                  position: 'absolute',
+                  right: 0,
+                  top: 10,
+                  width: 8,
+                  height: 8,
+                  borderRadius: '50%',
+                  background: '#ffffff',
+                  opacity: 0.9,
+                }}
+              />
+              {/* eyebrow: num + name */}
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 14 }}>
+                <span style={{ color: '#8A8A8A', fontSize: 15, fontWeight: 400, letterSpacing: 0.5 }}>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span style={{ color: '#4DD9C7', fontSize: 16, fontWeight: 600 }}>{study.name}</span>
+              </div>
+              {/* headline */}
               <h3
                 style={{
-                  fontSize: '1.4rem',
-                  fontWeight: 600,
                   color: '#ffffff',
-                  marginBottom: '0.4rem',
-                  letterSpacing: '-0.02em',
+                  fontSize: '1.7rem',
+                  fontWeight: 500,
+                  lineHeight: 1.12,
+                  letterSpacing: -0.5,
+                  maxWidth: 600,
+                  marginBottom: 20,
+                  paddingLeft: 40,
                 }}
               >
                 {study.title}
               </h3>
+              {/* desc */}
               <p
                 style={{
-                  fontSize: '0.85rem',
-                  color: 'rgba(255, 255, 255, 0.9)',
-                  lineHeight: 1.5,
+                  color: '#B8B8B8',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.6,
+                  maxWidth: 520,
                   margin: 0,
                 }}
               >
@@ -720,3 +631,140 @@ const Projects = () => {
 };
 
 export default Projects;
+
+{/*<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salona Showcase Card</title>
+<style>
+  :root{
+    --pink:#FF3E9A;
+    --pink-deep:#E8248A;
+    --black:#0A0A0A;
+    --teal:#4DD9C7;
+    --gray:#8A8A8A;
+    --gray-light:#B8B8B8;
+    --white:#FFFFFF;
+    --blue:#3E7BFA;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:var(--black);
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+  }
+
+  .showcase{
+    width:100%;
+    max-width:700px;
+  }
+
+  ---------- PINK CARD ---------- 
+  .card{
+    position:relative;
+    background:linear-gradient(160deg, var(--pink) 0%, var(--pink-deep) 100%);
+    border-radius:32px;
+    padding:32px;
+    overflow:hidden;
+  }
+
+  .visual-zone{
+    width:100%;
+    height:420px;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .visual-zone img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+
+   ---------- TEXT BLOCK ---------- 
+  .info{
+    margin-top:36px;
+    position:relative;
+  }
+  .eyebrow{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow .num{
+    color:var(--gray);
+    font-size:15px;
+    font-weight:400;
+    letter-spacing:0.5px;
+  }
+  .eyebrow .name{
+    color:var(--teal);
+    font-size:16px;
+    font-weight:600;
+  }
+  .headline{
+    color:var(--white);
+    font-size:44px;
+    font-weight:700;
+    line-height:1.12;
+    letter-spacing:-0.5px;
+    max-width:600px;
+    margin-bottom:20px;
+    padding-left:40px;
+  }
+  .desc{
+    color:var(--gray-light);
+    font-size:16px;
+    line-height:1.55;
+    max-width:520px;
+  }
+  .pagi-dot{
+    position:absolute;
+    right:0;
+    top:10px;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--white);
+    opacity:0.9;
+  }
+
+  @media (max-width:560px){
+    .headline{ font-size:32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase">
+
+  <div class="card">
+    <div class="visual-zone">
+      <img src="visual.png" alt="Salona app preview" />
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="pagi-dot"></div>
+    <div class="eyebrow">
+      <span class="num">04</span>
+      <span class="name">Salona</span>
+    </div>
+    <div class="headline">Professional Networking Platform</div>
+    <div class="desc">Reimagined professional networking for creatives through a more human and community-driven alternative to LinkedIn.</div>
+  </div>
+
+</div>
+
+</body>
+</html> */}

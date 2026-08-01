@@ -112,7 +112,7 @@ h6 {
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -279,7 +279,7 @@ h6 {
 
 .main-content {
   width: 100%;
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 .container {
@@ -291,11 +291,11 @@ h6 {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
 
   .main-content {
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
 }
 
@@ -387,7 +387,7 @@ h6 {
 
 /* ========== ABOUT ========== */
 .about-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
   border-top: 1px solid var(--border-color);
 }
 
@@ -405,7 +405,7 @@ h6 {
 
 @media (max-width: 1024px) {
   .about-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 
   .stats-grid {
@@ -415,13 +415,13 @@ h6 {
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 
   .about-content {
     gap: 2.5rem;
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
   }
 
   .stats-grid {
@@ -496,8 +496,8 @@ h6 {
 @media (max-width: 768px) {
   .stat-card {
     padding: 1.5rem 1.25rem;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .stat-number {
@@ -511,7 +511,7 @@ h6 {
 
 /* ========== EXPERIENCE ========== */
 .experience-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
   min-height: 100vh;
   border-top: 1px solid var(--border-color);
 }
@@ -591,15 +591,15 @@ h6 {
 
 @media (max-width: 1024px) {
   .experience-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
     min-height: auto;
   }
 }
 
 @media (max-width: 768px) {
   .experience-section {
-    padding: 3rem 0;
-    text-align: center;
+    padding: 2.5rem 0;
+    text-align: left;
   }
 
   .timeline {
@@ -608,7 +608,7 @@ h6 {
 
   .timeline-item {
     margin-bottom: 2.5rem;
-    text-align: center;
+    text-align: left;
   }
 
   .timeline-dot {
@@ -633,7 +633,7 @@ h6 {
 
 /* ========== PROJECTS ========== */
 .projects-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
   border-top: 1px solid var(--border-color);
 }
 
@@ -715,7 +715,7 @@ h6 {
 
 @media (max-width: 1024px) {
   .projects-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 
   .project-card {
@@ -725,19 +725,19 @@ h6 {
 
 @media (max-width: 768px) {
   .projects-section {
-    padding: 3rem 0;
-    text-align: center;
+    padding: 2.5rem 0;
+    text-align: left;
   }
 
   .project-card {
     margin-bottom: 3rem;
     gap: 1.5rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .project-info {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .project-title {
@@ -750,13 +750,13 @@ h6 {
   }
 
   .project-tech {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 
 /* ========== TECH MARQUEE ========== */
 .marquee-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
   border-top: 1px solid var(--border-color);
   overflow: hidden;
 }
@@ -819,8 +819,8 @@ h6 {
 
 @media (max-width: 768px) {
   .marquee-section {
-    padding: 3rem 0;
-    text-align: center;
+    padding: 2.5rem 0;
+    text-align: left;
   }
 
   .marquee-item {
@@ -835,7 +835,7 @@ h6 {
 
 /* ========== CONTACT ========== */
 .contact-section {
-  padding: 8rem 0;
+  padding: 5rem 0;
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -890,32 +890,32 @@ h6 {
 
 @media (max-width: 1024px) {
   .contact-section {
-    padding: 5rem 0;
+    padding: 4rem 0;
     min-height: auto;
   }
 }
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
     min-height: auto;
   }
 
   .contact-inner {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 2rem;
   }
 
   .contact-headline {
     font-size: clamp(2.5rem, 10vw, 4rem);
-    text-align: center;
+    text-align: left;
   }
 
   .contact-body {
     font-size: 1rem;
     max-width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .btn-cta {
@@ -939,7 +939,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 3.5rem;
-  padding: 4rem min(8vw, 6rem);
+  padding: 3rem min(8vw, 6rem);
   width: max-content;
 }
 
@@ -1079,29 +1079,29 @@ h6 {
   .playground-track {
     flex-direction: column;
     width: 100%;
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
     gap: 3rem;
   }
 
   .playground-intro {
     width: 100%;
     padding-right: 0;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .playground-title {
     font-size: clamp(2rem, 8vw, 3rem);
-    text-align: center;
+    text-align: left;
   }
 
   .playground-desc {
     max-width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .playground-label {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .playground-scroll-hint {
@@ -1112,8 +1112,8 @@ h6 {
     width: 100% !important;
     max-width: 100% !important;
     flex-shrink: 1 !important;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .playground-card-image {
@@ -1122,15 +1122,15 @@ h6 {
   }
 
   .playground-card-title {
-    text-align: center;
+    text-align: left;
   }
 
   .playground-card-desc {
-    text-align: center;
+    text-align: left;
   }
 
   .playground-card-tags {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 
@@ -1151,7 +1151,7 @@ h6 {
 @media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -1209,8 +1209,10 @@ h6 {
 
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  padding: 80px 40px 0;
+  padding: 64px 40px 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: var(--text-primary);
   background: var(--bg);
@@ -1246,8 +1248,9 @@ h6 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  align-self: flex-end;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .jh-toggle-btn {
@@ -1280,7 +1283,7 @@ h6 {
 .jh-badge-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .jh-badge {
@@ -1313,13 +1316,13 @@ h6 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
-  margin-top: 40px;
-  gap: 24px;
+  margin-top: 24px;
+  gap: 20px;
   position: relative;
 }
 
 .jh-left-col {
-  padding-top: 90px;
+  padding-top: 60px;
   padding-right: 24px;
   max-width: 340px;
 }
@@ -1337,7 +1340,7 @@ h6 {
   font-size: 17px;
   line-height: 1.5;
   color: var(--text-secondary);
-  margin: 0 0 40px;
+  margin: 0 0 20px;
 }
 
 .jh-stat-number {
@@ -1369,10 +1372,10 @@ h6 {
   --clip-height: 300px;
   --circle-offset: -100px;
   --portrait-w: 340px;
-  --stage-height: 520px;
-  --arrow-left: -6px;
-  --arrow-bottom: 70px;
-  --cta-bottom: 34px;
+  --stage-height: 500px;
+  --arrow-left: -10px;
+  --arrow-bottom: 62px;
+  --cta-bottom: 32px;
   position: relative;
   width: 420px;
   max-width: 100%;
@@ -1406,7 +1409,7 @@ h6 {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 480px;
+  width: 470px;
   max-width: 200%;
   height: auto;
   max-height: var(--stage-height);
@@ -1461,7 +1464,7 @@ h6 {
 }
 
 .jh-right-col {
-  padding-top: 90px;
+  padding-top: 60px;
   padding-left: 24px;
   text-align: right;
 }
@@ -1470,7 +1473,7 @@ h6 {
   display: flex;
   justify-content: flex-end;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .jh-star {
@@ -1504,13 +1507,14 @@ h6 {
 /* Tablet: stack into a single column, photo first */
 @media (max-width: 900px) {
   .jh-section {
-    padding: 20px 24px 0;
+    padding: 96px 24px 0;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
   }
 
   .jh-toggle-row {
     justify-content: center;
+    align-self: center;
   }
 
   .jh-content-row {
@@ -1518,7 +1522,7 @@ h6 {
     justify-items: center;
     text-align: center;
     gap: 36px;
-    margin-top: 32px;
+    margin-top: 24px;
   }
 
   .jh-left-col {
@@ -1560,14 +1564,14 @@ h6 {
   }
 
   .jh-photo-stage {
-    --circle-size: 340px;
-    --clip-height: 255px;
-    --circle-offset: -85px;
-    --portrait-w: 290px;
-    --stage-height: 440px;
+    --circle-size: 390px;
+    --clip-height: 292px;
+    --circle-offset: -97px;
+    --portrait-w: 330px;
+    --stage-height: 490px;
     --arrow-left: -4px;
-    --arrow-bottom: 56px;
-    --cta-bottom: 26px;
+    --arrow-bottom: 60px;
+    --cta-bottom: 30px;
     width: 380px;
   }
 }
@@ -1575,7 +1579,7 @@ h6 {
 /* Mobile: tighter type, smaller circle/portrait, wrapping buttons */
 @media (max-width: 600px) {
   .jh-section {
-    padding: 16px 16px 0;
+    padding: 92px 16px 0;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
   }
@@ -1608,14 +1612,14 @@ h6 {
   }
 
   .jh-photo-stage {
-    --circle-size: 260px;
-    --clip-height: 195px;
-    --circle-offset: -65px;
-    --portrait-w: 220px;
-    --stage-height: 340px;
+    --circle-size: 300px;
+    --clip-height: 225px;
+    --circle-offset: -75px;
+    --portrait-w: 255px;
+    --stage-height: 380px;
     --arrow-left: -2px;
-    --arrow-bottom: 40px;
-    --cta-bottom: 18px;
+    --arrow-bottom: 44px;
+    --cta-bottom: 22px;
     width: 280px;
   }
 }

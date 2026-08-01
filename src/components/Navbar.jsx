@@ -152,7 +152,7 @@ const Navbar = () => {
                 }}
               >
                 <img
-                  src="/src/assets/profile phto.jpg"
+                  src="/src/assets/profile-phto.jpg"
                   alt="Nayan K."
                   style={{
                     width: '100%',

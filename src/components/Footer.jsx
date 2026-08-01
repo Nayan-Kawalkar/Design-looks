@@ -89,7 +89,7 @@ const Footer = () => {
           }
         }
       `}</style>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 1.5rem)' }}>
         {/* HUGE HEADING: Let's (from Left) & Collaborate! (from Right) */}
         <div
           ref={headingRef}

@@ -16,21 +16,6 @@ export default function NayanHero() {
 
   return (
     <section className="jh-section" data-theme={theme}>
-      {/* Theme toggle */}
-      <div className="jh-toggle-row container">
-        <button
-          className="jh-toggle-btn"
-          onClick={() => setTheme(isDark ? "light" : "dark")}
-          aria-label="Toggle light and dark theme"
-        >
-          <span
-            className="jh-toggle-knob"
-            style={{ transform: isDark ? "translateX(22px)" : "translateX(0px)" }}
-          />
-        </button>
-        <span className="jh-toggle-label">{isDark ? "Dark" : "Light"}</span>
-      </div>
-
       {/* Hello badge */}
       <div className="jh-badge-row">
         <span className="jh-badge">Hello!</span>
@@ -58,6 +43,21 @@ export default function NayanHero() {
 
         {/* Center: portrait + circle, cropped at the section's bottom edge */}
         <div className="jh-center-col">
+          {/* Theme toggle, just above the circle, aligned right */}
+          <div className="jh-toggle-row">
+            <button
+              className="jh-toggle-btn"
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              aria-label="Toggle light and dark theme"
+            >
+              <span
+                className="jh-toggle-knob"
+                style={{ transform: isDark ? "translateX(22px)" : "translateX(0px)" }}
+              />
+            </button>
+            <span className="jh-toggle-label">{isDark ? "Dark" : "Light"}</span>
+          </div>
+
           <div className="jh-photo-stage">
             <div className="jh-circle-clip">
               <div className="jh-half-circle" />
