@@ -1542,11 +1542,6 @@ h6 {
     border-bottom-right-radius: 40px;
   }
 
-  .jh-toggle-row {
-    justify-content: center;
-    align-self: center;
-  }
-
   .jh-arrow {
     left: calc(50% - 205px);
     bottom: calc(var(--cta-bottom) + 42px);
