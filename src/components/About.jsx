@@ -156,7 +156,7 @@ const About = () => {
   }, [activeTab]);
 
   return (
-    <section id="about" style={{ paddingTop: '6.5rem', paddingBottom: '8.5rem', overflow: 'hidden' }}>
+    <section id="about" className="about-section" style={{ overflow: 'hidden' }}>
       {/* Inject scoped styles for highlights and links */}
       <style>{`
         .about-highlight {
@@ -182,8 +182,7 @@ const About = () => {
           grid-template-columns: minmax(220px, 280px) 1fr;
           gap: 3.5rem;
           align-items: start;
-          border-top: 1px solid var(--border-color);
-          padding-top: 2rem;
+          
 
         }
         @media (max-width: 900px) {
@@ -201,7 +200,7 @@ const About = () => {
         }
       `}</style>
 
-      <div className="container about-grid-layout" style={{ maxWidth: '1200px', margin: '0 auto', padding: '6rem clamp(1rem, 4vw, 1.5rem)' }}>
+      <div className="container about-grid-layout" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* ===== LEFT COLUMN ===== */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
@@ -335,6 +334,7 @@ const About = () => {
                 minHeight: '480px',
                 transformStyle: 'preserve-3d',
                 backfaceVisibility: 'hidden',
+                textAlign: 'left',
                 background: '#111114',
                 backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px)',
                 backgroundSize: '22px 22px',

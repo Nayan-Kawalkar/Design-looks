@@ -69,27 +69,31 @@ const Footer = () => {
         }
         @media (max-width: 768px) {
           .footer-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 2.5rem;
-            text-align: center;
+            text-align: left;
+          }
+          .footer-grid > div:last-child {
+            grid-column: 1 / -1;
           }
           .footer-grid ul {
-            align-items: center !important;
+            align-items: flex-start !important;
           }
           .footer-grid a {
-            justify-content: center !important;
+            justify-content: flex-start !important;
           }
           .footer-bottom-bar {
             flex-direction: column;
-            text-align: center;
+            align-items: flex-start;
+            text-align: left;
             gap: 0.75rem;
           }
           .footer-availability {
-            justify-content: center !important;
+            justify-content: flex-start !important;
           }
         }
       `}</style>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 1.5rem)' }}>
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* HUGE HEADING: Let's (from Left) & Collaborate! (from Right) */}
         <div
           ref={headingRef}
@@ -340,13 +344,13 @@ const Footer = () => {
                 style={{
                   display: 'block',
                   color: '#ffffff',
-                  fontSize: 'clamp(1.4rem, 2.5vw, 2.2rem)',
+                  fontSize: 'clamp(1.1rem, 2vw, 1.7rem)',
                   fontWeight: 500,
                   textDecoration: 'none',
                   fontFamily: "'Inter', sans-serif",
                   letterSpacing: '-0.02em',
                   marginBottom: '1.2rem',
-                  wordBreak: 'break-all',
+                  whiteSpace: 'nowrap',
                   transition: 'opacity 0.2s ease',
                 }}
                 onMouseEnter={(e) => (e.target.style.opacity = '0.85')}

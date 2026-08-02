@@ -120,7 +120,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="projects-section container" style={{ paddingTop: '3.5rem', paddingBottom: '5rem' }}>
+    <section id="projects" className="projects-section container">
       {/* Responsive scoped styles */}
       <style>{`
         .projects-desktop-view {
@@ -179,8 +179,13 @@ const Projects = () => {
           .projects-mobile-view {
             display: flex !important;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 0;
             width: 100%;
+          }
+          .projects-mobile-view > div + div {
+            margin-top: 5rem;
+            padding-top: 5rem;
+            border-top: 1px solid var(--border-color);
           }
         }
       `}</style>
@@ -566,7 +571,8 @@ const Projects = () => {
                 alt={`${study.title} preview`}
                 style={{
                   width: '100%',
-                  height: '420px',
+                  aspectRatio: '12 / 10',
+                  maxHeight: '490px',
                   objectFit: 'contain',
                   display: 'block',
                 }}
