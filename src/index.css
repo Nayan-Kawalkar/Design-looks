@@ -1655,8 +1655,8 @@ h6 {
     --circle-size: min(402px, 100%);
     --clip-height: 338px;
     --circle-offset: -64px;
-    --portrait-w: 382px;
-    --portrait-h: 480px;
+    --portrait-w: 470px;
+    --portrait-h: 580px;
     --stage-height: 360px;
     --cta-bottom: 33px;
     width: 420px;
@@ -1669,6 +1669,6 @@ h6 {
   }
 
   .jh-portrait {
-    max-width: 100%;
+    max-width: 125%;
   }
 }
