@@ -5,24 +5,31 @@ import { ZoomBlurReveal } from './ZoomBlurHeading';
 const experiences = [
   {
     id: 1,
-    date: '2024 - Present',
-    role: 'Senior UI/AI Engineer',
-    company: 'Agentic Systems Co.',
-    description: 'Spearheading the development of neural interfaces and AI-driven user experiences. Optimizing generative workflows for high-performance enterprise applications.'
+    date: 'Mar 2026 – Present',
+    role: 'Full Stack Developer Intern',
+    company: 'Win Design Labs',
+    description: 'Developing full-stack features end-to-end with React.js and Node.js/Express — UI components, backend APIs, and database schemas. Integrating LLM providers (Gemini, MiniMax) into production features, including prompt design, retrieval-augmented generation, and dynamic UI rendering from chat responses.'
   },
   {
     id: 2,
-    date: '2022 - 2024',
-    role: 'Creative Developer',
-    company: 'Digital Luxury Agency',
-    description: 'Built award-winning, WebGL-heavy promotional sites for luxury brands. Focused on micro-interactions, custom shaders, and scroll-based storytelling.'
+    date: 'Aug 2025 – Nov 2025',
+    role: 'Senior Web Development Intern',
+    company: 'KodeKalp Pvt. Ltd.',
+    description: 'Built and maintained end-to-end web applications with React.js and Node.js/Express across the MERN stack — features, APIs, and integrations — collaborating cross-functionally to improve scalability, performance, and code quality.'
   },
   {
     id: 3,
-    date: '2020 - 2022',
-    role: 'Frontend Developer',
-    company: 'Tech Innovators',
-    description: 'Developed scalable React architectures. Transitioned legacy monolithic frontends into modular, high-speed jamstack applications.'
+    date: 'Jun 2023 – Jul 2024',
+    role: 'Junior Web Development Intern',
+    company: 'SSIT Pvt. Ltd.',
+    description: 'Developed web application components with Django and supported backend feature implementation. Performed unit testing with pytest and built basic SEO tooling in Python.'
+  },
+  {
+    id: 4,
+    date: 'Mar 2025',
+    role: 'Team Lead',
+    company: 'National-Level Project Competition',
+    description: 'Led a team end-to-end through a national-level project competition — an AI-based Smart Farming Application — and won 1st Prize on 21 March 2025.'
   }
 ];
 

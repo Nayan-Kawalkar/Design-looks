@@ -5,34 +5,52 @@ import { ZoomBlurReveal } from './ZoomBlurHeading';
 
 const playgroundProjects = [
   {
-    title: 'Nook',
-    desc: 'An inspiration archive for creatives to save, organize, and revisit references in a more immersive way.',
-    tags: ['Creative Tool', 'Chrome Extension'],
+    title: 'AXIOM',
+    desc: 'Interactive 3D sneaker brand experience built with Three.js and Sketchfab. A sci-fi runner with live photonic core, math-driven motion, and real-time PBR shading.',
+    tags: ['Three.js', '3D Web', 'Interactive', 'WebGL'],
+    link: 'https://3-d-shoe-web.vercel.app/',
+    image: '/images/shoes.png',
+    video: '',
+  },
+  {
+    title: 'Moving Garden',
+    desc: 'Animated, award-style website created with Google Antigravity + Google Flow. A living garden experience built in a short time.',
+    tags: ['Antigravity', 'Google Flow', 'Animation', 'Creative Dev'],
+    link: 'https://moving-gardern.vercel.app/',
+    image: '/images/gardern.png',
+    video: '/videos/gardern.mp4',
+  },
+  {
+    title: 'NOVA – 3D Drink Cans',
+    desc: '3D product showcase of drink cans built in about one hour using Google Flow, AI image generation, and Antigravity.',
+    tags: ['3D', 'Product Showcase', 'AI Tools', 'WebGL'],
+    link: 'https://3d-drink-cans.vercel.app/',
     image: '/images/cans.jpg',
     video: '',
   },
   {
-    title: 'Remake',
-    desc: 'A creative-stack builder to assemble, remix, and deploy UI kits with modular design tokens.',
-    tags: ['Web App', 'Creative Dev'],
-    image: '/images/gardern-1.png',
-    video: '/videos/gardern.mp4',
-  },
-  {
-    title: 'Signal',
-    desc: 'A real-time notification orchestration layer for multi-agent systems with priority queuing.',
-    tags: ['Backend', 'Python', 'WebSocket'],
-    image: '/images/shoes.png',
-    video: '',
-
-  },
-  {
-    title: 'Construct',
-    desc: 'A node-based visual pipeline editor for building and debugging AI agent workflows in the browser.',
-    tags: ['React', 'Canvas API', 'LangGraph'],
+    title: 'Bushido Zen',
+    desc: 'Samurai creed & focus trainer website. An immersive AI-studio style experience exploring discipline and mindfulness.',
+    tags: ['AI Studio', 'Immersive', 'Interactive', 'Concept'],
+    link: 'https://sword-willa.vercel.app/',
     image: '/images/bhushido.png',
     video: '',
-
+  },
+  {
+    title: 'Arcane Experience',
+    desc: 'Cinematic, vibe-driven website inspired by Arcane and League of Legends. Immersive web experience created in minutes.',
+    tags: ['Cinematic', 'Web Design', 'Creative Dev', 'Arcane'],
+    link: 'https://arcane-rust.vercel.app/',
+    image: '/images/arcane.png',
+    video: '',
+  },
+  {
+    title: 'Fluid Animation Study',
+    desc: 'Interactive real-time shader experiment with fluid motion, soft diffraction, and mouse-reactive behavior. Built with Google AI Studio.',
+    tags: ['Shaders', 'WebGL', 'Interactive', 'AI Studio'],
+    link: 'https://fluid-animation-sigma.vercel.app/',
+    image: '/images/fluid.png',
+    video: '',
   },
 ];
 
@@ -103,21 +121,31 @@ const Playground = () => {
 
         {/* Project Cards (move right along with intro) */}
         {playgroundProjects.map((project, i) => (
-          <div className="playground-card" key={i}>
+          <a
+            className="playground-card"
+            key={i}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div
               className="playground-card-image"
               data-cursor-text="View Now"
             >
-              <video
-                autoplay
-                muted
-                loop
-                playsinline
-                poster={project.image}
-                alt={project.title}
-              >
-                <source src={project.video} alt={project.title} type="video/mp4" />
-              </video>            </div>
+              {project.video ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster={project.image}
+                >
+                  <source src={project.video} type="video/mp4" />
+                </video>
+              ) : (
+                <img src={project.image} alt={project.title} />
+              )}
+            </div>
             <h3 className="playground-card-title">{project.title}</h3>
             <p className="playground-card-desc">{project.desc}</p>
             <div className="playground-card-tags">
@@ -125,7 +153,7 @@ const Playground = () => {
                 <span className="playground-tag" key={j}>{tag}</span>
               ))}
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>

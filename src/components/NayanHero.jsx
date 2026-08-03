@@ -25,7 +25,7 @@ export default function NayanHero() {
       <h1 className="jh-headline">
         I&apos;m <span className="jh-accent">Nayan,</span>
       </h1>
-      <h1 className="jh-headline jh-headline-second">Product Designer</h1>
+      <h1 className="jh-headline jh-headline-second">System Designer </h1>
 
       {/* Content row: quote / portrait / stats */}
       <div className="jh-content-row">
@@ -33,12 +33,12 @@ export default function NayanHero() {
         <div className="jh-left-col">
           <span className="jh-quote-mark">&ldquo;</span>
           <p className="jh-quote-text">
-            Nayan&apos;s exceptional product designer ensure our website&apos;s
-            success. Highly recommended!
+            Nayan built our portfolio&apos;s AI assistant end-to-end &mdash; RAG
+            pipeline, chat UI, everything. Exceptional work, highly recommended!
           </p>
 
-          <p className="jh-stat-number">450+</p>
-          <p className="jh-stat-label">Client Server</p>
+          <p className="jh-stat-number">10+</p>
+          <p className="jh-stat-label">Projects Shipped</p>
         </div>
 
         {/* Center: portrait + circle, cropped at the section's bottom edge */}
@@ -136,8 +136,8 @@ export default function NayanHero() {
               </span>
             ))}
           </div>
-          <p className="jh-years">10 Years</p>
-          <p className="jh-experts">Experts</p>
+          <p className="jh-years">4+ Years</p>
+          <p className="jh-experts">Experience</p>
           <div className="jh-underline" />
         </div>
       </div>

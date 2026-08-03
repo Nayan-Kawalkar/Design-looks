@@ -3,9 +3,10 @@ import gsap from 'gsap';
 import { ZoomBlurReveal } from './ZoomBlurHeading';
 
 const technologies = [
-  'React', 'Next.js', 'TypeScript', 'Python', 'Node.js', 'GSAP',
-  'Three.js', 'TailwindCSS', 'PostgreSQL', 'Docker', 'AWS',
-  'LangChain', 'FastAPI', 'Redis', 'GraphQL', 'Figma',
+  'React.js', 'Node.js', 'Express', 'Django', 'TypeScript', 'Python',
+  'Java', 'C/C++', 'React Native', 'MongoDB', 'Supabase', 'Upstash Redis',
+  'Gemini API', 'Claude API', 'MiniMax LLM', 'LangGraph', 'RAG Pipelines',
+  'Multi-Agent AI', 'Figma', 'Framer', 'WordPress', 'Git',
 ];
 
 const TechMarquee = () => {

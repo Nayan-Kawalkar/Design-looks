@@ -65,7 +65,7 @@ const Contact = () => {
         </p>
 
         <div className="contact-cta">
-          <a href="mailto:hello@example.com" className="btn-cta magnetic">
+          <a href="mailto:kawalkarnayan07@gmail.com" className="btn-cta magnetic">
             <span>Get In Touch</span>
             <ArrowRight size={20} />
           </a>

@@ -234,7 +234,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/nayan-kawalkar-164725352/"
+                  href="https://www.linkedin.com/in/nayankawalkar"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -382,7 +382,7 @@ const Footer = () => {
                 }}
               />
               <span style={{ fontSize: '0.88rem', color: '#a1a1aa', fontFamily: "'Inter', sans-serif" }}>
-                Available for work — Maharastra, India
+                Available for work — Maharashtra, India
               </span>
             </div>
           </div>

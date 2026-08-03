@@ -9,9 +9,11 @@ const audienceData = [
     accentColor: '#22c55e',
     content: (
       <>
-        I'm a <span className="about-highlight">&#123;creative_technologist&#125;</span> building
-        modern web apps &amp; interactive experiences; I design with intent and code with{' '}
-        <span className="about-link">(precision)</span> from scratch.
+        I'm a <span className="about-highlight">&#123;full_stack_developer&#125;</span> building
+        modern web apps &amp; agentic AI systems; multi-agent orchestration, RAG pipelines, and
+        LLM-powered automation &mdash; owned end-to-end from{' '}
+        <span className="about-link">(frontend)</span> to{' '}
+        <span className="about-link">(deployment)</span>.
       </>
     ),
   },
@@ -21,10 +23,11 @@ const audienceData = [
     accentColor: '#3b82f6',
     content: (
       <>
-        I have <span className="about-highlight">&#123;4+_years&#125;</span> of experience shipping
-        production web apps; fast learner, outcome-driven, and fluent in{' '}
-        <span className="about-link">React</span>,{' '}
-        <span className="about-link">TypeScript</span> &amp; modern UI systems.
+        I have <span className="about-highlight">&#123;3+_years&#125;</span> of experience shipping
+        production full-stack apps with <span className="about-link">React</span>,{' '}
+        <span className="about-link">Node.js</span> &amp;{' '}
+        <span className="about-link">Django</span>, with equally strong depth in agentic AI &amp;
+        RAG pipelines.
       </>
     ),
   },
@@ -34,9 +37,9 @@ const audienceData = [
     accentColor: '#a855f7',
     content: (
       <>
-        I bridge the gap between <span className="about-link">(design.intent)</span> &amp;&amp;{' '}
-        <span className="about-link">(engineering.reality)</span>; micro-animations,
-        pixel-perfection, and fluid physics are second nature.
+        I turn <span className="about-link">(design.intent)</span> into{' '}
+        <span className="about-link">(production_code)</span>; pixel-perfect React interfaces,
+        smooth interactions, and Framer-built experiences are my playground.
       </>
     ),
   },
@@ -47,8 +50,8 @@ const audienceData = [
     content: (
       <>
         I ship <span className="about-highlight">&#123;high_impact&#125;</span> features on
-        schedule without technical debt; clear communicator, system-thinker, and focused on user
-        metric velocity.
+        schedule; clear communicator who owns builds end-to-end &mdash; frontend, backend,
+        vector pipelines, and deployment.
       </>
     ),
   },
@@ -58,12 +61,10 @@ const audienceData = [
     accentColor: '#06b6d4',
     content: (
       <>
-        I'm <span className="about-highlight">&#123;highly_technical&#125;</span> and while (I'm
-        &ne; traditional engineer) I know my way /around &amp; can speak{' '}
-        <span className="about-highlight">"fluently"</span> with you; I built{' '}
-        <a href="#hero" className="about-link">(this.site)</a> from scratch +{' '}
-        <a href="#projects" className="about-link">(this.one)</a> &amp;&amp;{' '}
-        <a href="#playground" className="about-link">(this.too)</a>.
+        I speak <span className="about-highlight">&#123;Python, JS/TS, Java, C/C++&#125;</span>{' '}
+        fluently; I built{' '}
+        <a href="#hero" className="about-link">(this.site)</a> from scratch, plus production
+        multi-agent WhatsApp automation, RAG pipelines, and conversational AI interfaces.
       </>
     ),
   },
@@ -336,8 +337,8 @@ const About = () => {
                 backfaceVisibility: 'hidden',
                 textAlign: 'left',
                 background: '#111114',
-                backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px)',
-                backgroundSize: '22px 22px',
+                backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.06) 1.4px, transparent 1.4px)',
+                backgroundSize: '20px 20px',
                 borderRadius: '24px',
                 border: '1px solid rgba(255,255,255,0.06)',
                 boxShadow: `0 30px 60px rgba(0,0,0,0.5), inset 0 0 80px rgba(${currentAudience.accentColor === '#22c55e' ? '34,197,94' :
@@ -351,7 +352,7 @@ const About = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                padding: '4.5rem 3.8rem',
+                padding: '4.5rem 2.5rem',
               }}
             >
               {/* Decorative floating code snippets */}

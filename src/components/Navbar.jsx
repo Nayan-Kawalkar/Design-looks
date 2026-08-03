@@ -140,7 +140,7 @@ const Navbar = () => {
         >
           {/* LEFT: Avatar + Status Dot + Name */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexShrink: 0 }}>
-            <div style={{ position: 'relative', width: 42, height: 42 }}>
+            <div className="navbar-avatar" style={{ position: 'relative', width: 42, height: 42 }}>
               <div
                 style={{
                   width: '100%',
@@ -240,7 +240,7 @@ const Navbar = () => {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexShrink: 0, paddingRight: '0.3rem' }}>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/nayankawalkar"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-pill magnetic"

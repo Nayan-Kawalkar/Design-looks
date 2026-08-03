@@ -5,97 +5,116 @@ import { ZoomBlurReveal } from './ZoomBlurHeading';
 
 const caseStudies = [
   {
-    id: 'crypto-wallet',
-    name: 'Social Crypto',
-    title: 'Social Crypto Wallet',
-    description: 'Founding designer of a social crypto wallet that simplifies digital asset management and peer-to-peer transactions.',
+    id: 'stocker',
+    name: 'Stocker',
+    title: 'AI Portfolio Intelligence Hub',
+    description: 'A multi-broker AI portfolio analytics platform aggregating holdings, transactions, and ledgers across Indian and US brokers into one unified view — with an agentic copilot that answers free-form questions about portfolio performance.',
     bgGradient: 'linear-gradient(135deg, #0052ff 0%, #0036b8 50%, #001038 100%)',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-loop-31804-large.mp4',
     centerScreen: {
-      user: 'Sophia Turner',
+      user: 'Stocker Copilot',
       time: '9:41',
       messages: [
-        { sender: 'them', text: 'Hey Anna, have you been following the crypto market lately?' },
-        { sender: 'them', text: "I'm considering it. I've been reading up on Bitcoin and Ethereum..." },
-        { sender: 'me', text: "I'm a bit more cautious. It's all about diversification." },
-        { sender: 'them', text: 'Hey, can you send $200 for Ben\'s birthday?' },
+        { sender: 'them', text: 'Holdings synced across Zerodha, Groww & Fidelity.' },
+        { sender: 'me', text: 'Best performer this month: NVDA +12.4%. Want a per-stock deep dive?' },
+        { sender: 'them', text: 'What were the market conditions when I bought TCS?' },
       ],
     },
     leftScreen: {
-      title: 'Select a Crypto',
+      title: 'Connected Brokers',
       tokens: [
-        { name: 'Ethereum', symbol: 'ETH', price: '$2,359', change: '+4.31%', color: '#627eea' },
-        { name: 'Bitcoin', symbol: 'BTC', price: '$270', change: '+4.31%', color: '#f7931a' },
-        { name: 'Tether', symbol: 'USDT', price: '$10', change: '-0.02%', color: '#26a17b' },
+        { name: 'Zerodha', symbol: 'NSE', price: 'Synced', change: '+4.2%', color: '#6366f1' },
+        { name: 'Groww', symbol: 'NSE', price: 'Synced', change: '+6.1%', color: '#f7931a' },
+        { name: 'Fidelity', symbol: 'US', price: 'Synced', change: '+8.9%', color: '#26a17b' },
       ],
+    },
+    rightScreen: {
+      title: 'Total Portfolio Value',
+      value: '$48,250.00',
     },
   },
   {
-    id: 'fosterhealth-ai',
-    name: 'FosterHealth AI',
-    title: 'Healthcare SaaS',
-    description: 'Led the UX design of customizable features that let doctors personalize their AI-generated notes.',
+    id: 'rag-chatbot',
+    name: 'AI Portfolio Chatbot',
+    title: 'Conversational RAG Assistant',
+    description: 'A full RAG pipeline powering a conversational assistant for a portfolio site — content authored in Notion, synced every 6 hours, chunked and embedded via Gemini, stored as vectors in Supabase, with Upstash Redis caching and MiniMax LLM response generation.',
     bgGradient: 'linear-gradient(135deg, #10b981 0%, #047857 50%, #022c22 100%)',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-white-abstract-lines-loop-41484-large.mp4',
     centerScreen: {
-      user: 'Dr. Marcus Vance',
+      user: 'Portfolio Assistant',
       time: '9:41',
       messages: [
-        { sender: 'them', text: 'Patient assessment loaded: Medial Collateral Ligament Sprain.' },
-        { sender: 'me', text: 'Generated note template verified. Prescribed Naproxen 500mg bid.' },
-        { sender: 'them', text: 'Follow-up appointment scheduled in 1 week.' },
+        { sender: 'them', text: 'Ask me anything about the projects or blog.' },
+        { sender: 'me', text: 'Here are 3 relevant projects I found, rendered as clickable cards.' },
+        { sender: 'them', text: 'Summarize the latest blog post for me.' },
       ],
     },
     leftScreen: {
-      title: 'EHR Templates',
+      title: 'RAG Stack',
       tokens: [
-        { name: 'Ortho Eval', symbol: 'MCL', price: 'Active', change: 'v2.4', color: '#10b981' },
-        { name: 'Cardio Note', symbol: 'ECG', price: 'Ready', change: 'v1.8', color: '#3b82f6' },
+        { name: 'Notion', symbol: 'Source', price: 'Synced', change: '6h', color: '#10b981' },
+        { name: 'Supabase', symbol: 'Vectors', price: 'Live', change: '12k', color: '#3b82f6' },
+        { name: 'Upstash', symbol: 'Cache', price: 'Active', change: '240ms', color: '#f59e0b' },
       ],
+    },
+    rightScreen: {
+      title: 'Responses Cached',
+      value: '240ms',
     },
   },
   {
-    id: 'sourcing',
-    name: 'DeFi Dashboard',
-    title: 'DeFi Liquidity Dashboard',
-    description: 'An institutional-grade dashboard for monitoring liquidity pools. Minimalist design paired with high-density data visualizations.',
+    id: 'yc-directory',
+    name: 'YC Directory',
+    title: 'Startup Pitch Platform',
+    description: 'A social platform for uploading startups with Markdown pitches — full authentication and database integration, built for founders to share and discover early-stage ideas.',
     bgGradient: 'linear-gradient(135deg, #6366f1 0%, #4338ca 50%, #1e1b4b 100%)',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-white-abstract-lines-loop-41484-large.mp4',
     centerScreen: {
-      user: 'Pool Analytics',
+      user: 'YC Directory',
       time: '9:41',
       messages: [
-        { sender: 'them', text: 'Total Value Locked: $142.8M across 12 automated pools.' },
-        { sender: 'me', text: 'Average APY yield optimized at 14.2% with automated rebalancing.' },
+        { sender: 'them', text: 'New pitch: "FarmFlow — smart farming for small farms."' },
+        { sender: 'me', text: 'Pitch approved and published. +24 upvotes this week.' },
+        { sender: 'them', text: 'Markdown pitch submitted — awaiting review.' },
       ],
     },
     leftScreen: {
-      title: 'Active Pools',
+      title: 'Trending Pitches',
       tokens: [
-        { name: 'USDC/ETH', symbol: 'UNI-v3', price: '$84.2M', change: '+18.4%', color: '#6366f1' },
-        { name: 'WBTC/USDT', symbol: 'CURVE', price: '$42.1M', change: '+9.2%', color: '#ec4899' },
+        { name: 'FarmFlow', symbol: 'Agri', price: '24k', change: '+12%', color: '#6366f1' },
+        { name: 'DevHive', symbol: 'DevTools', price: '18k', change: '+8%', color: '#ec4899' },
       ],
+    },
+    rightScreen: {
+      title: 'Pitches Published',
+      value: '1,240',
     },
   },
   {
-    id: 'salona',
-    name: 'Neural BCI',
-    title: 'Neural Interface UI',
-    description: 'A conceptual interface for brain-computer interaction. Focused on micro-animations and non-obtrusive, ambient feedback loops.',
+    id: 'digital-farming',
+    name: 'Digital Framing',
+    title: 'AI Smart Farming',
+    description: 'A cross-platform (React Native + React.js) app for farmers with chatbot support, image-based crop issue detection, and a peer knowledge-sharing feature — sharing one backend across mobile and web.',
     bgGradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 50%, #2e1065 100%)',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-loop-31804-large.mp4',
     centerScreen: {
-      user: 'BCI Signal Lock',
+      user: 'Crop Assistant',
       time: '9:41',
       messages: [
-        { sender: 'them', text: 'Alpha wave frequency locked at 98.4% confidence.' },
-        { sender: 'me', text: 'Zero-latency motor intent translation active.' },
+        { sender: 'them', text: 'Image analyzed: early blight detected on tomato leaves.' },
+        { sender: 'me', text: 'Recommended: copper fungicide spray. Peer guidance is available nearby.' },
       ],
     },
     leftScreen: {
-      title: 'Neural Channels',
+      title: 'Crop Diagnostics',
       tokens: [
-        { name: 'Cortex Alpha', symbol: '12Hz', price: 'Locked', change: '99%', color: '#8b5cf6' },
-        { name: 'Motor Beta', symbol: '22Hz', price: 'Active', change: '96%', color: '#06b6d4' },
+        { name: 'Tomato', symbol: 'Blight', price: 'Detected', change: '94%', color: '#8b5cf6' },
+        { name: 'Rice', symbol: 'Healthy', price: 'OK', change: '99%', color: '#06b6d4' },
       ],
+    },
+    rightScreen: {
+      title: 'Issues Detected',
+      value: '3,420',
     },
   },
 ];
@@ -200,7 +219,7 @@ const Projects = () => {
       </ZoomBlurReveal>
       <ZoomBlurReveal delay={0.15}>
         <p className="hero-subtitle">
-          I blend technology, creativity, and empathy to craft seamless experiences that bridge people, spaces, and services.
+          Production-grade full-stack apps and agentic AI systems &mdash; multi-agent orchestration, RAG pipelines, and LLM-powered automation, built end-to-end.
         </p>
       </ZoomBlurReveal>
 
@@ -447,8 +466,8 @@ const Projects = () => {
                 >
                   <div style={{ fontWeight: 700, fontSize: '0.8rem', marginBottom: '0.8rem' }}>Activity</div>
                   <div style={{ background: '#2563eb', height: 95, borderRadius: 14, padding: '0.8rem', color: '#fff' }}>
-                    <div style={{ fontSize: '0.68rem', opacity: 0.8 }}>Wallet Balance</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 800, marginTop: '0.2rem' }}>$14,250.00</div>
+                    <div style={{ fontSize: '0.68rem', opacity: 0.8 }}>{currentStudy.rightScreen.title}</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 800, marginTop: '0.2rem' }}>{currentStudy.rightScreen.value}</div>
                   </div>
                 </div>
               </div>
