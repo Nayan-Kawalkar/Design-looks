@@ -34,9 +34,9 @@ const TechMarquee = () => {
   const doubledTech = [...technologies, ...technologies];
 
   return (
-    <section className=" container marquee-section" ref={marqueeRef}>
+    <section className="marquee-section" ref={marqueeRef}>
       <ZoomBlurReveal>
-        <h2 className="section-title" style={{ padding: '0 0 2rem 0' }}>
+        <h2 className="section-title" style={{ padding: '0 2rem 2rem' }}>
           <span className="text-accent mono" style={{ fontSize: '1rem', display: 'block', marginBottom: '0.5rem' }}>04 //</span>
           Tech Arsenal
         </h2>

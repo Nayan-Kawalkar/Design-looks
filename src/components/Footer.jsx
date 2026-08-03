@@ -38,7 +38,7 @@ const Footer = () => {
   };
 
   return (
-    <footer
+    <footer id='contact'
       style={{
         backgroundColor: '#09090b',
         color: '#ffffff',

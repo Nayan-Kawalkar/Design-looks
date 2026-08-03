@@ -40,7 +40,7 @@ const playgroundProjects = [
     title: 'Arcane Experience',
     desc: 'Cinematic, vibe-driven website inspired by Arcane and League of Legends. Immersive web experience created in minutes.',
     tags: ['Cinematic', 'Web Design', 'Creative Dev', 'Arcane'],
-    link: 'https://arcane-rust.vercel.app/',
+    link: 'https://arcane-site-ruby.vercel.app/',
     image: '/images/arcane.png',
     video: '',
   },
